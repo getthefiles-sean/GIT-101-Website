@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git 101 : Stashing</title>
+  <link href="lib/fontawesome/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="g-base">
+  <main id="p-topic">
+    <nav id="s-navigation">
+      <div class="nav-link">
+        <i class="fas fa-home"></i><a href="index.html">Home</a>
+      </div>
+    </nav>
+
+    <div id="s-title">
+      Stashing
+    </div>
+
+    <div id="s-definition">
+      Git stashing allows you to temporarily save changes in your working directory (modified or
+      staged files) without committing them. This is useful when you need to switch branches or work on something else
+      but are not ready to commit your current work.
+
+      When you stash changes, Git stores them in a stack (a list of stashes), which you can apply later to continue
+      where you left off.
+    </div>
+
+    <div id="s-use-cases">
+      <div><i class="fa-solid fa-wrench"></i> Use Cases:</div>
+      <ul>
+        <li>Experimenting without creating multiple commits</li>
+        <li>Cleaning up before pulling changes from remote</li>
+        <li>Avoiding unwanted commits in a branch</li>
+        <li>Saving changes temporarily wile debugging</li>
+        <li>Switching to a different task on short notice</li>
+      </ul>
+    </div>
+
+    <div id="s-examples">
+      <div><i class="fa-solid fa-pen-to-square"></i> Examples:</div>
+      <div>
+        <div>Creating a new stash (any untracked files will not be stashed):</div>
+        <div class="code">git stash</div>
+      </div>
+      <div>
+        <div>Stash both tracked and untracked files</div>
+        <div class="code">git stash -u</div>
+      </div>
+      <div>
+        <div>list all local stashes</div>
+        <div class="code">git stash list</div>
+      </div>
+      <div>
+        <div>Apply most recent stash to working branch and remove from stash list</div>
+        <div class="code">git stash pop</div>
+      </div>
+      <div>
+        <div>Apply most recent stash to working branch but keep it in the stash list</div>
+        <div class="code">git stash apply  # Applies the most recent stash </div>
+        <div class="code">git stash apply stash@{index} # Applies a specific stash by index</div>
+      </div>
+      <div>
+        <div>Delete all stashes from the list</div>
+        <div class="code">git stash clear</div>
+      </div>
+      <div>
+        <div>Delete a specific stash from the list</div>
+        <div class="code">git stash drop # Drops the most recent stash</div>
+        <div class="code">git stash drop stash@{index} # Drops a specific stash by index</div>
+      </div>
+      
+    </div>
+
+    <footer id="s-footer">
+      Team Members: Derrick Maurais, Tim Watson, Daniel Sampson
+    </footer>
+  </main>
+</body>
+
+</html>

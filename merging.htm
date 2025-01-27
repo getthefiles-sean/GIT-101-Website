@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git 101 : Merging</title>
+  <link href="lib/fontawesome/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="g-base">
+  <main id="p-topic">
+    <nav id="s-navigation">
+      <div class="nav-link">
+        <i class="fas fa-home"></i><a href="index.html">Home</a>
+      </div>
+    </nav>
+
+    <div id="s-title">
+      Merging
+    </div>
+
+    <div id="s-definition">
+      Git merging is the process of combining changes from one branch into another. This is commonly used to integrate
+      feature development, bug fixes, or other updates into a main branch. Git automatically tries to combine changes,
+      but in some cases, conflicts may occur if changes overlap. 
+    </div>
+
+    <div id="s-use-cases">
+      <div><i class="fa-solid fa-wrench"></i> Use Cases:</div>
+      <ul>
+        <li>Feature Development</li>
+        <li>Refactoring Code</li>
+        <li>Bug Fixing</li>
+        <li>Code Review</li>
+        <li>Release Management</li>
+        <li>Team Collaboration</li>
+        <li>Experimentation</li>
+      </ul>
+    </div>
+
+    <div id="s-examples">
+      <div><i class="fa-solid fa-pen-to-square"></i> Examples:</div>
+      <div>
+        <div>Merge current branch into specified branch:</div>
+        <div class="code">git merge [branch-name]</div>
+      </div>
+      <div>
+        <div>Cancel a merge if there is conflict:</div>
+        <div class="code">git merge --abort</div>
+      </div>
+      <div>
+        <div>Ensure dedicated branch commit to keep branch history intact:</div>
+        <div class="code">git merge --no-ff [branch-name]</div>
+      </div>
+    </div>
+
+    <footer id="s-footer">
+      Team Members: Derrick Maurais, Tim Watson, Daniel Sampson
+    </footer>
+  </main>
+</body>
+
+</html>
