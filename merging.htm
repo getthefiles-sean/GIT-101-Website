@@ -24,7 +24,7 @@
     <div id="s-definition">
       Git merging is the process of combining changes from one branch into another. This is commonly used to integrate
       feature development, bug fixes, or other updates into a main branch. Git automatically tries to combine changes,
-      but in some cases, conflicts may occur if changes overlap.
+      but in some cases, conflicts may occur if changes overlap. 
     </div>
 
     <div id="s-use-cases">
@@ -49,6 +49,10 @@
       <div>
         <div>Cancel a merge if there is conflict:</div>
         <div class="code">git merge --abort</div>
+      </div>
+      <div>
+        <div>Ensure dedicated branch commit to keep branch history intact:</div>
+        <div class="code">git merge --no-ff [branch-name]</div>
       </div>
     </div>
 
