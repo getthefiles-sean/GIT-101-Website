@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git 101 : Rebasing</title>
+    <link href="lib/fontawesome/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body class="g-base">
+    <main id="p-topic">
+      <nav id="s-navigation">
+        <div class="nav-link">
+          <i class="fas fa-home"></i><a href="index.html">Home</a>
+        </div>
+      </nav>
+      
+      <div id="s-title">
+        Rebasing
+      </div>
+
+      <div id="s-definition">
+        Rebasing, just like <a style="text-decoration: underline;" href="./merging.htm">merging</a>, is a way to integrate changes from one branch into another branch. It's a way to maintain a linear commit history, which can make it easier to understand the project history.
+        <br><br>
+        If a project with a main branch and a feature branch had changes made to the main branch while the feature branch was being worked on, rebasing the feature branch onto the main branch would make it look like the feature branch was created after the changes to the main branch were made, keeping the commit history clean by not adding merge commits to the timeline. It is then easier to understand the steps taken during development of a project.
+        <br><br>
+        The downside to rebasing is that it will rewrite the commit history of the feature branch, which may not be the desired outcome. <em><strong>Never rebase a shared branch (like the main branch) into a personal branch.</strong></em> That will cause your main branch to diverge from the remote main branch, <strong>creating copies of the same commits</strong>, which will cause conflicts when trying to push your changes to the remote repository.
+        
+        <div style="text-align: center; margin-top: 2em; margin-bottom: 4em;">
+          <h2>Rebasing Example</h2>
+          <img src="https://wac-cdn.atlassian.com/dam/jcr:3bafddf5-fd55-4320-9310-3d28f4fca3af/03%20Rebasing%20the%20feature%20branch%20into%20main.svg?cdnVersion=2537" alt="Rebasing" width="80%" height="80%">
+          <small style="display: block; margin-top: 2em;">Image from <a style="text-decoration: underline;" href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing#conceptual-overview">Atlassian: Merging vs Rebasing</a></small>
+        </div>
+
+        <div style="text-align: center; margin-top: 2em;">
+          <h2>Do <em><strong>NOT</strong></em> do this!</h2>
+          <img src="https://wac-cdn.atlassian.com/dam/jcr:2908e0e6-f74b-4425-b5d2-f5eca8cfcd99/05%20Rebasing%20the%20main%20branch.svg?cdnVersion=2537" alt="Rebasing" width="80%" height="80%">
+          <small style="display: block; margin-top: 2em;">Image from <a style="text-decoration: underline;" href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing#the-golden-rule-of-rebasing">Atlassian: Merging vs Rebasing</a></small>
+        </div>
+        
+      </div>
+
+      <div id="s-use-cases">
+        <div><i class="fa-solid fa-wrench"></i> Use Cases:</div>
+        <ul>
+          <li>Integrating changes from one local branch to another</li>
+          <li>Maintaining a linear commit history</li>
+          <li>Performing a <a href="./merging.htm#s-examples">fast-forward merge</a> without creating a merge commit</li>
+          <li>Cleaning up a local feature branch</li>
+        </ul>
+      </div>
+
+      <div id="s-examples">
+        <div><i class="fa-solid fa-pen-to-square"></i> Examples:</div>
+        <div>
+          <div><b>Rebasing a feature branch on the tip of main:</b></div>
+          <div class="code">
+            git checkout feature<br>
+            git rebase main
+          </div>
+          <br>
+
+
+          <div><b>Interactive Rebasing (starts a vim session):</b></div>
+          <div class="code">git rebase -i [branch_name]</div>
+          <br>
+          <div>Output will include something like this:</div>
+          <div class="code">
+            pick 33d5b7a Message for commit #1
+            <br>
+            pick 9480b3d Message for commit #2
+            <br>
+            pick 5c67e61 Message for commit #3
+          </div>
+          <br>
+          <div>Replace pick with another command to execute an action on the commit. The rebase will execute on file save.</div>
+          <br>
+          <div class="code">
+            reword 33d5b7a Message for commit #1
+            <br>
+            fixup 9480b3d Message for commit #2
+            <br>
+            fixup 5c67e61 Message for commit #3
+          </div>
+          <br>
+          <div>This will <b>rewrite a new commit #1</b> with a new message with the changes from commit #2 and #3</div>
+          <br>
+          Save the file to execute the rebase.
+          <div class="code">
+            :wq
+          </div>
+          <br>
+          <div>List of commands for interactive rebase:</div>
+          <ul>
+            <li><b>squash:</b> This will combine the selected commit's changes with the previous commit, including the commit message</li>
+            <li><b>fixup:</b> This will combine the selected commit's changes into the previous commit, keeping the previous commit's message intact</li>
+            <li><b>reword:</b> This will change a commit's message</li>
+          </ul>
+          Note that the order of the commits in the list is the order of execution. It is possible to modify the order since the commits are being rewritten.
+        </div>
+      </div>
+
+      <footer id="s-footer">
+        Team Members: Sruthy Surendran, Jean-René Duguay
+      </footer>
+    </main>
+  </body>
+</html>
