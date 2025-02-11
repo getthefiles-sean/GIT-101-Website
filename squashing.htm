@@ -47,7 +47,9 @@
           <div><b>Start an interactive rebase:</b></div>
           <div class="code">
             git rebase -i HEAD~4 <br>
-            # The 4 means you are starting an interactive rebase for the last 4 commits in your current branch.
+            # The 4 means you are starting an interactive rebase for the last 4 commits in your current branch. <br> <br>
+            # If you want to squash from a certain commit, you can use the commit hash instead of squash, for example: <br>
+            git rebase -1 2e3f98521b41dab0bb362901b177af445b0de687~3
           </div>
           <br>
 
@@ -73,6 +75,17 @@
             squash ijkl789 New color
             <br>
             squash mnop012 Add error messages
+            <br> <br>
+            # You dont always have to squash to the top commit, for example: <br>
+            pick abcd123 Fix typo
+            <br>
+            pick efgh456 Add validation
+            <br>
+            squash ijkl789 New color
+            <br>
+            squash mnop012 Add error messages
+            <br>
+            # This will squash only the bottom 2 commits in to the "Add validation" commit.
           </div>
           <br>
           <div>Git will now ask you to modify the commit message. You'll see something like:</div>
