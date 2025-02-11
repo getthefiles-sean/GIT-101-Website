@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git 101 : Squashing</title>
+    <link href="lib/fontawesome/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body class="g-base">
+    <main id="p-topic">
+      <nav id="s-navigation">
+        <div class="nav-link">
+          <i class="fas fa-home"></i><a href="index.html">Home</a>
+        </div>
+      </nav>
+      
+      <div id="s-title">
+        Squashing
+      </div>
+
+      <div id="s-definition">
+        Squashing is the process of taking a series of commits and merge them into a single commit. This technique is especially useful when a feature branch has numerous small, incremental commits that clutter the commit history. By squashing these commits, you can present a more polished and cohesive history to your collaborators.
+        <br><br>
+        <div id="s-use-cases">
+            <div><i class="fa-solid fa-wrench"></i> Use Cases:</div>
+            <ul>
+              <li>Cleaning Up a Feature Branch</li>
+              <li>Improving Readability of Commit History</li>
+              <li>Reducing Noise in Merge Requests</li>
+              <li>Rewriting Commit Messages for Clarity</li>
+            </ul>
+          </div>
+        
+        <div style="text-align: center; margin-top: 2em; margin-bottom: 4em;">
+          <h2>Squashing Example</h2>
+          <img src="https://devopscounsel.com/wp-content/uploads/2022/05/git-squash.drawio-1024x468.png" alt="Squashing" width="80%" height="80%">
+          <small style="display: block; margin-top: 2em;">Image from <a style="text-decoration: underline;" href="https://devopscounsel.com/git-squash-commits/">DevOps Council</a></small>
+        </div>
+        
+      </div>
+
+      <div id="s-examples">
+        <div><i class="fa-solid fa-pen-to-square"></i> Examples:</div>
+        <div>
+            <div><h2>Squashing Locally:</h2></div>
+          <div><b>Start an interactive rebase:</b></div>
+          <div class="code">
+            git rebase -i HEAD~4 <br>
+            # The 4 means you are starting an interactive rebase for the last 4 commits in your current branch.
+          </div>
+          <br>
+
+
+          <div><b>This opens an interactive editor showing the last 4 commits:</b></div>
+          <div class="code">
+            pick abcd123 Fix typo
+            <br>
+            pick efgh456 Add validation
+            <br>
+            pick ijkl789 New color
+            <br>
+            pick mnop012 Add error messages
+          </div>
+          <br>
+          <div><b>Modify the Commands to Squash</b></div>
+          <p>Change all pick (except the first commit) to squash:</p>
+          <div class="code">
+            pick abcd123 Fix typo
+            <br>
+            squash efgh456 Add validation
+            <br>
+            squash ijkl789 New color
+            <br>
+            squash mnop012 Add error messages
+          </div>
+          <br>
+          <div>Git will now ask you to modify the commit message. You'll see something like:</div>
+          <br>
+          <div class="code">
+            # This is a combination of 4 commits. <br>
+            Fix typo <br> <br>
+
+            Add validation<br>
+            New color<br>
+            Add error messages
+          </div>
+          <br>
+          <div>You can edit this commit message to something cleaner, for example:</div>
+          <br>
+          <div class="code">
+            Improve web app: fix typo, add validation, new color, and add error messages.
+          </div>
+          <br>
+          <div><h2>Squashing a pull request:</h2></div>
+          <div>When merging a pull request, squashing and merging is 1 of 3 options you can choose from</div>
+          <div style="text-align: center; margin-top: 2em; margin-bottom: 4em;">
+            <div>
+                <img src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Ff9cd5040-ff40-422b-a703-66f91ffb974d_878x679.png" alt="Squash and Merge" width="80%" height="80%">
+                <small style="display: block; margin-top: 2em;">Image from <a style="text-decoration: underline;" href="https://gitbetter.substack.com/p/how-to-squash-git-commits">Substack</a></small><br>
+            </div>
+            <div>This will combine all your commits in to one commit, and give you the option to change your commit message</div> <br>
+            <div>
+                <img src="https://images.thoughtbot.com/blog-vellum-image-uploads/1DEGsOaWRFezsgCCrG0Y_confirm-squash-and-merge-with-good-message.png" alt="Squashing" width="80%" height="80%">
+                <small style="display: block; margin-top: 2em;">Image from <a style="text-decoration: underline;" href="https://thoughtbot.com/blog/don-t-forget-the-silent-step-when-you-squash-and-merge">Thoughtbot</a></small>
+            </div> <br>
+            <div>You can then confirm squash and merge, and all your commits will be squashed in to 1 commit</div> <br>
+          </div>
+      </div>
+
+      <footer id="s-footer">
+        Team Members: Reese Parsons, Carter Haner
+      </footer>
+    </main>
+  </body>
+</html>
