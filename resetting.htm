@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git 101 : Resetting</title>
+  <link href="lib/fontawesome/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="g-base">
+  <main id="p-topic">
+    <nav id="s-navigation">
+      <div class="nav-link">
+        <i class="fas fa-home"></i><a href="index.html">Home</a>
+      </div>
+    </nav>
+
+    <div id="s-title">
+      Resetting
+    </div>
+
+    <div id="s-definition">
+      The git reset command is a versatile tool that allows developers to undo changes to a project's
+      commit history by manipulating gits three state management mechanisms: The HEAD, staging index, and working
+      directory. It has three primary options that can be applied when invoked. These are &#45;&#45;soft,
+      &#45;&#45;mixed, and &#45;&#45;hard. These options determine how the projects state is modified.
+
+      <div style="text-align: center; margin-top: 2em; margin-bottom: 4em;">
+        <h2>Checkout vs. Reset</h2>
+        <img
+          src="https://wac-cdn.atlassian.com/dam/jcr:8d616ece-8cee-4fde-bdee-4b280a0a8334/01%20git-sequence-transparent%20kopiera.png?cdnVersion=2558"
+          alt="Main Branch" width="80%" height="80%">
+          <div><b>Checkout</b></div>
+        <img
+          src="https://wac-cdn.atlassian.com/dam/jcr:f45c4a34-8968-4c81-83cf-d55ebf01a447/02%20git-checkout-transparent%20kopiera.png?cdnVersion=2562"
+          alt="Git checkout" width="80%" height="80%">
+          <div><b>Reset</b></div>
+        <img
+          src="https://wac-cdn.atlassian.com/dam/jcr:bdf5fda3-4aac-4170-ba35-58f7a66ea3c4/03%20git-reset-transparent%20kopiera.png?cdnVersion=2558"
+          alt="Git Reset" width="80%" height="80%">
+        <small style="display: block; margin-top: 2em;">Images from <a style="text-decoration: underline;"
+            href="https://www.atlassian.com/git/tutorials/undoing-changes/git-reset">Atlassian: Git reset</a></small>
+      </div>
+
+      <div><b>The Steps of Resetting:</b></div>
+      <ol>
+        <li><b>Moves the HEAD:</b> The first thing that reset will do regardless of what additional options are chosen
+          is move where the HEAD points to. When the &#45;&#45;soft option is invoked this step is where the process will stop.
+        </li>
+        <li><b>Updates the Staging Index:</b> After moving the HEAD the next thing reset will attempt to do is update
+          the staging index by changing it&#39;s state back to the specified commit. Any changes that are undone from the
+          staging index are moved back into the working directory. With the &#45;&#45;mixed option the reset process will stop
+          here.</li>
+        <li><b>Updates the Working Directory:</b> Lastly, reset will make the working directory look like the staging
+          index if the &#45;&#45;hard option is invoked. This final step is DANGEROUS. This will undo your git add and git
+          commit commands, and all the work you did in the working directory.</li>
+      </ol>
+    </div>
+
+    <div id="s-use-cases">
+      <div><i class="fa-solid fa-wrench"></i> Use Cases:</div>
+      <ul>
+        <li>Unstaging changes</li>
+        <li>Amending commits</li>
+        <li>Removing local commits</li>
+        <li>Changing commit history</li>
+        <li>Reverting Changes in a file</li>
+      </ul>
+    </div>
+
+    <div id="s-examples">
+      <div><i class="fa-solid fa-pen-to-square"></i> Examples:</div>
+      <div>
+        <div>Reset to specific commit and keep changes staged:</div>
+        <div class="code">git reset --soft [commit-hash]</div>
+      </div>
+      <div>
+        <div>Reset to specific commit and unstage changes:</div>
+        <div class="code">git reset [commit-hash]</div>
+        <div class="code">git reset --mixed [commit-hash]</div>
+      </div>
+      <div>
+        <div>Reset to specific commit and discard all changes (DANGEROUS):</div>
+        <div class="code">git reset --hard [commit-hash]</div>
+      </div>
+      <div>
+        <div>Reset specific file back to the state of a particular commit:</div>
+        <div class="code">git reset [commit-hash] [file-name]</div>
+      </div>
+    </div>
+
+    <footer id="s-footer">
+      Team Members: Aaron MacPherson, Lucca Lazzarini Silva
+    </footer>
+  </main>
+</body>
+
+</html>
