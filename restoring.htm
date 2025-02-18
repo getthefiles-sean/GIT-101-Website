@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Git 101 : Restoring</title>
+    <link href="lib/fontawesome/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="g-base">
+    <main id="p-topic">
+      <nav id="s-navigation">
+        <div class="nav-link">
+          <i class="fas fa-home"></i><a href="index.html">Home</a>
+        </div>
+      </nav>
+
+      <div id="s-title">Restoring</div>
+
+      <div id="s-definition">
+        Restoring is the process of reverting changes in your working directory
+        and/or staging area to a previous state without changing the commit history. 
+        Restoring is useful when you want to undo changes, remove files from the 
+        staging area, or restore a file to a previous state.
+      </div>
+
+      <div id="s-use-cases">
+        <div><i class="fa-solid fa-wrench"></i> Use Cases:</div>
+        <ul>
+          <li>Discarding changes in the working directory</li>
+          <li>Restoring the project folder to a previous state</li>
+          <li>Restoring a file to a previous state</li>
+          <li>Removing files from the staging area</li>
+        </ul>
+      </div>
+
+      <div id="s-examples">
+        <div><i class="fa-solid fa-pen-to-square"></i> Examples:</div>
+        <div>
+          <b>Usage of the <i>git restore</i> command:</b>
+          <div class="code">git restore [options] [filename/path]<br /></div>
+        </div>
+        <div>
+          <b>Removing a file from the staging area</b>
+          <div class="code">git restore --staged [filename]<br /></div>
+        </div>
+        <div>
+          <b
+            >Discarding changes in the working directory (restoring to previous commit state)</b
+          >
+          <div class="code">
+            # The dot represents all files in current directory<br />
+            git restore .<br />
+          </div>
+        </div>
+        <div>
+          <b>Restoring a file to a previous state</b>
+          <div class="code">
+            # HEAD~1 represents the commit before the last commit<br />
+            git restore --source=HEAD~1 [filename]
+          </div>
+        </div>
+        <div>
+          <b>Restoring files in both the working directory and staging area</b>
+          <div class="code">
+            git restore --staged --worktree .<br />
+        </div>
+      </div>
+
+      <footer id="s-footer">
+        Team Members: Aaron MacPherson, Lucca Lazzarini Silva
+      </footer>
+    </main>
+  </body>
+</html>

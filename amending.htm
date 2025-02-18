@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Git 101 : Amending</title>
+    <link href="lib/fontawesome/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="g-base">
+    <main id="p-topic">
+      <nav id="s-navigation">
+        <div class="nav-link">
+          <i class="fas fa-home"></i><a href="index.html">Home</a>
+        </div>
+      </nav>
+
+      <div id="s-title">Amending</div>
+
+      <div id="s-definition">
+        Amending is the process of updating the most recent commit with new
+        changes. This is useful when you forgot to include a file or a change, or made a
+        mistake in the commit message. Amending creates a new commit with the
+        updated changes, replacing the previous commit.
+      </div>
+
+      <div id="s-use-cases">
+        <div><i class="fa-solid fa-wrench"></i> Use Cases:</div>
+        <ul>
+          <li>Fixing typos in commit messages</li>
+          <li>Adding files you forgot to include in the last commit</li>
+          <li>Updating the most recent commit with new changes</li>
+        </ul>
+      </div>
+
+      <div id="s-examples">
+        <div><i class="fa-solid fa-pen-to-square"></i> Examples:</div>
+        <div>
+          <div><b>Fixing a typo in the last commit message:</b></div>
+          <div class="code">git commit --amend -m "New commit message"</div>
+        </div>
+        <div>
+          <div><b>Adding/updating specific files in the last commit:</b></div>
+          <div class="code">
+            # Add the file(s) to the staging area<br />
+            git add [filename]<br /><br />
+
+            # Amend to the previous commit without editing the commit message<br />
+            git commit --amend --no-edit
+          </div>
+        </div>
+      </div>
+
+      <footer id="s-footer">
+        Team Members: Aaron MacPherson, Lucca Lazzarini Silva
+      </footer>
+    </main>
+  </body>
+</html>
