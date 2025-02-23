@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git 101 : Conflict Resolution</title>
+  <link href="lib/fontawesome/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="g-base">
+  <main id="p-topic">
+    <nav id="s-navigation">
+      <div class="nav-link">
+        <i class="fas fa-home"></i><a href="index.html">Home</a>
+      </div>
+    </nav>
+
+    <div id="s-title">
+      Conflict Resolution
+    </div>
+
+    <div id="s-definition">
+      <p>
+      Merge conflicts happen when you merge branches that have competing commits, and Git needs your help to decide
+      which changes to incorporate in the final merge.
+      </p>
+      <p>
+      Think of Git merge conflicts like two chefs trying to modify the same recipe simultaneously. One chef adds more
+      salt, while the other removes salt entirely - Git doesn't know which version to keep!
+      </p>
+      <p>
+      Git can often resolve differences between branches and merge them automatically. Usually, the changes are on
+      different lines, or even in different files, which makes the merge simple for computers to understand. However,
+      sometimes there are competing changes that Git can't resolve without your help.
+      </p>
+    </div>
+
+    <div id="s-use-cases">
+      <div><i class="fa-solid fa-wrench"></i> Use Cases:</div>
+      <ul>
+        <li>Multiple developers editing the same file lines (e.g., two people modifying the same function)</li>
+        <li>Pulling changes from remote while having local modifications (e.g., forgot to pull before starting work)
+        </li>
+        <li>Merging feature branches with conflicting changes (e.g., two features modifying the same configuration)</li>
+        <li>Rebasing branches with overlapping modifications</li>
+        <li>Renaming or moving files that others have modified</li>
+        <li>Modifying the same dependencies or configuration files</li>
+      </ul>
+    </div>
+
+    <div id="s-common-patterns">
+      <div><i class="fa-solid fa-puzzle-piece"></i> Common Conflict Patterns:</div>
+      <ul>
+        <li>Semantic conflicts: Both changes are syntactically correct but create logical errors when combined</li>
+        <li>Formatting conflicts: Different code formatters or whitespace changes</li>
+        <li>Renamed file conflicts: One person renames while another modifies</li>
+        <li>Deleted file conflicts: One person modifies a file that another deleted</li>
+      </ul>
+    </div>
+
+    <div id="s-prevention">
+      <div><i class="fa-solid fa-shield"></i> Preventing Conflicts:</div>
+      <ul>
+        <li>Pull changes frequently: <code>git pull origin main</code></li>
+        <li>Communicate with team members about which files you're working on</li>
+        <li>Keep feature branches short-lived and focused</li>
+      </ul>
+    </div>
+
+    <div id="s-examples">
+      <div><i class="fa-solid fa-pen-to-square"></i> Step-by-Step Conflict Resolution:</div>
+      <div>
+        <div>1. First, identify which files are in conflict:</div>
+        <div class="code">git status</div>
+        <div class="explanation">Files marked as "both modified" are the ones you need to fix</div>
+      </div>
+      <div>
+        <div>2. Open the conflicted file and locate the conflict markers:</div>
+        <div class="code">
+          <<<<<<< HEAD<br> your local changes<br>=======<br>incoming changes<br>>>>>>>> branch-name
+        </div>
+        <div class="explanation">These markers show you both versions of the conflicting code</div>
+      </div>
+      <div>
+        <div>3. Useful commands during conflict resolution:</div>
+        <div class="code">
+          git diff # Show current conflicts<br>
+          git log --merge # Show commits that caused the conflict<br>
+          git checkout --ours fileName # Keep your changes<br>
+          git checkout --theirs fileName # Keep their changes
+        </div>
+      </div>
+      <div>
+        <div>4. After deciding which changes to keep, mark file as resolved:</div>
+        <div class="code">git add [resolved-file-name]</div>
+        <div class="explanation">This tells Git "I've fixed this file, trust me!"</div>
+      </div>
+      <div>
+        <div>5. If things get too messy, you can always start over:</div>
+        <div class="code">
+          git merge --abort # Abort the merge<br>
+          git reset --hard HEAD # Reset to last commit (careful!)
+        </div>
+        <div class="explanation">These are your escape hatches - they return everything to pre-merge state</div>
+      </div>
+      <div>
+        <div>6. Once all conflicts are resolved, complete the merge:</div>
+        <div class="code">git commit -m "Resolved merge conflicts"</div>
+        <br>
+        <div class="explanation">Congratulations! You've successfully handled a merge conflict! 🎉</div>
+      </div>
+    </div>
+    <footer id="s-footer">
+      Team Members: Lillian Allison, Jeff Manser
+    </footer>
+  </main>
+</body>
+
+</html>
