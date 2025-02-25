@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git 101 : Pull Requests</title>
+    <link href="lib/fontawesome/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="g-base">
+    <main id="p-topic">
+        <nav id="s-navigation">
+            <div class="nav-link">
+                <i class="fas fa-home"></i><a href="index.html">Home</a>
+            </div>
+        </nav>
+
+        <div id="s-title">
+            Pull Requests
+        </div>
+
+        <div id="s-definition">
+            A Pull Request (PR) is a way to notify team members that you've completed a feature or fixed a bug. It's a
+            request to merge your changes from one branch (compare) into another branch (base). PRs are crucial for code
+            review and team collaboration, allowing discussion and refinement of code before it's merged into the main
+            codebase.
+        </div>
+
+        <div id="s-use-cases">
+            <div><i class="fa-solid fa-wrench"></i> Use Cases:</div>
+            <ul>
+                <li>Submitting new features for review</li>
+                <li>Proposing bug fixes</li>
+                <li>Collaborating on code changes with team members</li>
+                <li>Getting feedback on work-in-progress code</li>
+                <li>Contributing to open source projects</li>
+            </ul>
+        </div>
+
+        <div id="s-examples">
+            <div><i class="fa-solid fa-pen-to-square"></i> Creating and Managing Pull Requests:</div>
+            <div>
+                <div>1. Create a feature branch locally:</div>
+                <div class="code">git checkout -b feature-branch</div>
+                <div class="explanation">Always work in a separate branch for PRs</div>
+            </div>
+            <div>
+                <div>2. Push branch to remote:</div>
+                <div class="code">git push origin feature-branch</div>
+                <div class="explanation">Make your changes available on GitHub</div>
+            </div>
+            <div>
+                <div>3. Create PR on GitHub:</div>
+
+                <div class="step-container">
+                    <div class="step-description">
+                        <h4>Step 1: Access Pull Request Creation</h4>
+                        <p>Navigate to your repository on GitHub. If you recently pushed changes, you'll see a "Compare
+                            & Pull Request" button.</p>
+                        <img src="images/recentbranch.png" alt="Compare & Pull Request button after recent changes"
+                            class="tutorial-image">
+                    </div>
+
+                    <div class="step-description">
+                        <h4>Step 2: Select Branches</h4>
+                        <p>If no "Compare & Pull Request" button appears, click the "New pull request" button and select
+                            your branches.</p>
+                        <img src="images/newpr.png" alt="Branch selection dropdowns" class="tutorial-image">
+                    </div>
+
+                    <div class="step-description">
+                        <h4>Step 3: Review Changes</h4>
+                        <p>Review the comparison between branches, including commits and changed files.</p>
+                        <img src="images/createpr.png" alt="Branch comparison view showing commits and files"
+                            class="tutorial-image">
+                    </div>
+
+                    <div class="step-description">
+                        <h4>Step 4: Finalize Pull Request</h4>
+                        <p>Add a descriptive title and detailed description explaining your changes. Then click "Create
+                            pull request" to submit.</p>
+                        <img src="images/prbody.png" alt="Pull request creation form with title and description"
+                            class="tutorial-image">
+                    </div>
+                    <div class="step-notes">
+                        <h4>Important Notes:</h4>
+                        <ul>
+                            <li>Base branch is typically 'main' (where you want to merge TO)</li>
+                            <li>Compare branch is your feature branch (where your changes are)</li>
+                            <li>Write clear titles and descriptions to help reviewers understand your changes</li>
+                            <li>Review all changes before submitting to ensure everything is included</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>4. Update PR after feedback:</div>
+                <div class="code">
+                    git add .<br>
+                    git commit -m "Address PR feedback"<br>
+                    git push origin feature-branch</div>
+                <div class="explanation">The PR updates automatically when you push changes</div>
+            </div>
+            <div>
+                <div>5. Handling reviewer comments:</div>
+                <div class="code">
+                    # View PR comments on GitHub<br>
+                    # Respond with:<br>
+                    - 👍 to acknowledge<br>
+                    - Add follow-up comment<br>
+                    - "Resolve conversation" when fixed</div>
+            </div>
+            <div>
+                <div>6. Final PR checks:</div>
+                <div class="code">
+                    # Before merging, ensure:<br>
+                    - All comments resolved<br>
+                    - Required reviews completed<br>
+                    - All changes tested locally<br>
+                    - No merge conflicts</div>
+            </div>
+        </div>
+
+        <div id="s-best-practices">
+            <div><i class="fa-solid fa-star"></i> Best Practices:</div>
+            <ul>
+                <li>Write clear PR descriptions explaining what and why (not just how)</li>
+                <li>Keep PRs focused and reasonably sized</li>
+                <li>Respond promptly to reviewer feedback</li>
+                <li>Test your changes before submitting</li>
+                <li>Update your PR branch with the latest base branch changes</li>
+            </ul>
+        </div>
+
+        <footer id="s-footer">
+            Team Members: Lillian Allison, Jeff Manser
+        </footer>
+    </main>
+</body>
+
+</html>
