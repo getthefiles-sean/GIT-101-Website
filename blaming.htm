@@ -20,33 +20,46 @@
       </div>
 
       <div id="s-definition">
-        A branch represents an independent line of development. Branches serve as an abstraction for the edit/stage/commit process. You can think of them as a way to request a brand new working directory, staging area, and project history.
+        Blaming is a tool used to determine in what commit a line was last changed, when that commit occurred, and who made that commit. Using blame, you can trace the changes of a line back to when bugs, errors, or features were implemented.
       </div>
 
       <div id="s-use-cases">
         <div><i class="fa-solid fa-wrench"></i> Use Cases:</div>
         <ul>
-          <li>Creating a new feature or fixing a bug</li>
-          <li>Starting work on a new project</li>
-          <li>Collaborating with others</li>
-          <li>List all the use cases here...</li>
+          <li>Multiple developers are working on the same file</li>
+          <li>Needing to know who made a change on certain lines</li>
+          <li>Needing to know the most recent time a line was changed</li>
+          <li>Tracing a line's history to the origin of an error</li>
         </ul>
       </div>
 
       <div id="s-examples">
         <div><i class="fa-solid fa-pen-to-square"></i> Examples:</div>
         <div>
-          <div>Creating a new branch:</div>
-          <div class="code">git branch [branch-name]</div>
+          <div>Checking the most recent change to each line of code in a file:</div>
+          <div class="code">git blame [file-name]</div>
         </div>
         <div>
-          <div>Removing a branch:</div>
-          <div class="code">git branch -d [branch-name]</div>
+          <div>As above, but for only a certain range of lines:</div>
+          <div class="code">git blame -L [first-line],[second-line] [file-name]</div>
+          <div class="explanation">Line ranges are integers separated by a comma:</div>
+          <div class="code">git blame -L 4,10 index.html</div>
+        </div>
+        <div>
+          <div>Checking the most recent change to each line of code in a file, flagging commits older than a certain date:</div>
+          <div class="code">git blame --since=[date] -- [file-name]</div>
+          <div class="explanation">Dates can be written in a typical date format (DD/MM/YYYY, YYYY-DD-MM, etc.) or as a string represent the desired date relative to the current date:</div>
+          <div class="code">git blame --since='yesterday' -- index.html</div>
+        </div>
+        <div>
+          <div>Checking the most recent change to each line in a file, using a commit ID (or abbreviation of one) to start from, looking backwards:</div>
+          <div class="code">git blame $commit^ [file-name]</div>
+          <div class="explanation">The hat (^) needs to go after the commit ID in order to look backwards from that commit</div>
         </div>
       </div>
 
       <footer id="s-footer">
-        Team Members: [insert names of team members here]
+        Team Members: Jackie Malley, Gordon Hutchinson
       </footer>
     </main>
   </body>
