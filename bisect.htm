@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git 101 : Bisect</title>
+    <link href="lib/fontawesome/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="g-base">
+    <main id="p-topic">
+        <nav id="s-navigation">
+            <div class="nav-link">
+                <i class="fas fa-home"></i><a href="index.html">Home</a>
+            </div>
+        </nav>
+
+        <div id="s-title">
+            Bisect
+        </div>
+
+        <div id="s-definition">
+            Git Bisect is a tool that helps you automatically find the commit that introduced a bug or issue in your
+            codebase.
+            It works by using a binary search algorithm to efficiently narrow down the problematic commit. Git Bisect
+            requires you to provide
+            the hash of a good commit and a bad commit- ie. An example of when your code was working and another example
+            of when it was not.
+        </div>
+
+        <div style="text-align: center; margin-top: 2em; margin-bottom: 4em;">
+            <h2>How Bisect Moves Through History </h2>
+            <img src="images/Git_Bisect_Illustration.png" alt="bisect commit history" class="tutorial-image" width="80%"
+                height="80%">
+        </div>
+        <div id="s-definition">The power of bisecting means that if there were 1000 commits between a good state and bad
+            the most commits you would need to review when using bisect is 10.
+        </div>
+
+        <div><b>How to Bisect:</b></div>
+        <ol>
+            <li>Locate the commit hash of a good state and abad state. If your good state is the same as the HEAD then
+                you
+                do not need to provide a git hash in this instance because if no hash is provided HEAD will be assumed.
+            </li>
+            <li>Start the git bisect process </li>
+            <li>When prompted provide a good state and a bad state. </li>
+            <li>You will be prompted to confirm if a commit is good or bad. Git bisect will then bisect the remaining commits again. 
+            </li>
+            <li> Once the bad commit is located return to the HEAD and address the issue as desired</b></li>
+        </ol>
+        </div>
+
+        <div id="s-use-cases">
+            <div><i class="fa-solid fa-wrench"></i> Use Cases:</div>
+            <ul>
+                <li>Locating a bug</li>
+                <li>Find the commit that broke a feature</li>
+                <li>Finding a Commit that changed functionality</li>
+            </ul>
+        </div>
+
+        <div id="s-examples">
+            <div><i class="fa-solid fa-pen-to-square"></i> Examples:</div>
+            <div>
+                <div>List Commits to identify good and bad state:</div>
+                <div class="code">git log --oneline</div>
+            </div>
+            <div>
+                <div>Start bisecting:</div>
+                <div class="code">git bisect start</div>
+                <br>
+                <div>&nbsp&nbsp&nbsp&nbsp OR</div>
+                <div class="code">git bisect start [bad-commit-hash] [good-commit-hash]</div>
+            </div>
+            <div>
+                <div>Adivse starting good state:</div>
+                <div class="code">git bisect good [good-commit-hash]</div>
+            </div>
+            <div>
+                <div>Adivse starting bad state:</div>
+                <div class="code">git bisect bad [bad-commit-hash]</div>
+                <br>
+                <div>&nbsp&nbsp&nbsp&nbsp OR</div>
+            </div>
+            <div>
+                <div>If bad state is on the HEAD no commit hash is needed</div>
+                <div class="code">git bisect bad</div>
+            </div>
+            <div>
+                <div>Confirm if provided commit is good:</div>
+                <div class="code">git bisect good</div>
+            </div>
+            <div>
+                <div>Confirm if provided commit is bad:</div>
+                <div class="code">git bisect bad</div>
+            </div>
+            <div>
+                <div>Return to Head:</div>
+                <div class="code">git bisect </div>
+            </div>
+            <div>
+                <div>Provide different terms:</div>
+                <div class="code">git bisect old</div>
+            </div>
+            <div>
+                <div>Provide different terms:</div>
+                <div class="code">git bisect new</div>
+            </div>
+            <div>
+                <div>Confirm current terms:</div>
+                <div class="code">git bisect terms</div>
+            </div>
+            <div>
+                <div>Log bisect file:</div>
+                <div class="code">git bisect log > bisect.txt</div>
+            </div>
+            </div>
+
+            <footer id="s-footer">
+                Team Members: Jackie Malley, Gordon Hutchinson
+            </footer>
+    </main>
+</body>
+
+</html>
