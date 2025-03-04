@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git 101 : Blaming</title>
+    <link href="lib/fontawesome/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body class="g-base">
+    <main id="p-topic">
+      <nav id="s-navigation">
+        <div class="nav-link">
+          <i class="fas fa-home"></i><a href="index.html">Home</a>
+        </div>
+      </nav>
+      
+      <div id="s-title">
+        Blaming
+      </div>
+
+      <div id="s-definition">
+        Blaming is a tool used to determine in what commit a line was last changed, when that commit occurred, and who made that commit. Using blame, you can trace the changes of a line back to when bugs, errors, or features were implemented.
+      </div>
+
+      <div id="s-use-cases">
+        <div><i class="fa-solid fa-wrench"></i> Use Cases:</div>
+        <ul>
+          <li>Multiple developers are working on the same file</li>
+          <li>Needing to know who made a change on certain lines</li>
+          <li>Needing to know the most recent time a line was changed</li>
+          <li>Tracing a line's history to the origin of an error</li>
+        </ul>
+      </div>
+
+      <div id="s-examples">
+        <div><i class="fa-solid fa-pen-to-square"></i> Examples:</div>
+        <div>
+          <div>Checking the most recent change to each line of code in a file:</div>
+          <div class="code">git blame [file-name]</div>
+        </div>
+        <div>
+          <div>As above, but for only a certain range of lines:</div>
+          <div class="code">git blame -L [first-line],[second-line] [file-name]</div>
+          <div class="explanation">Line ranges are integers separated by a comma:</div>
+          <div class="code">git blame -L 4,10 index.html</div>
+        </div>
+        <div>
+          <div>Checking the most recent change to each line of code in a file, flagging commits older than a certain date:</div>
+          <div class="code">git blame --since=[date] -- [file-name]</div>
+          <div class="explanation">Dates can be written in a typical date format (DD/MM/YYYY, YYYY-DD-MM, etc.) or as a string represent the desired date relative to the current date:</div>
+          <div class="code">git blame --since='yesterday' -- index.html</div>
+        </div>
+        <div>
+          <div>Checking the most recent change to each line in a file, using a commit ID (or abbreviation of one) to start from, looking backwards:</div>
+          <div class="code">git blame $commit^ [file-name]</div>
+          <div class="explanation">The hat (^) needs to go after the commit ID in order to look backwards from that commit</div>
+        </div>
+      </div>
+
+      <footer id="s-footer">
+        Team Members: Jackie Malley, Gordon Hutchinson
+      </footer>
+    </main>
+  </body>
+</html>
